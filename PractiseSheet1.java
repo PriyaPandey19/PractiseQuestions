@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class PractiseSheet1{
 
     public static void getLargest(int numbers[]){    //get largest and smallest value
@@ -30,12 +32,27 @@ public class PractiseSheet1{
         
     }
 
+    
+    public static void SortArray(int arr[]){           //0s 1s 2s in array
+    int size = arr.length;
+    Arrays.sort(arr);
+
+    for(int i=0;i<size;i++){
+        System.out.print(arr[i] +" ");
+    }
+    System.out.println();
+}
+
+
+
     public static void main(String args[]){
-     int numbers[] ={1,2,3,4,5};
-     reveseArray(numbers);
-     for(int i=0;i<numbers.length;i++){
-      System.out.println(numbers[i]);
-     }
+     int numbers[] ={0,4,1,0,1,5,2,4};
+    //  reveseArray(numbers);
+    //  for(int i=0;i<numbers.length;i++){
+    //   System.out.println(numbers[i]);
+    //  }
+
+    SortArray(numbers);
   
     }
 }
