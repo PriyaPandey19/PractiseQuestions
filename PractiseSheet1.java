@@ -2,7 +2,7 @@ import java.util.*;
 
 public class PractiseSheet1{
 
-    public static void getLargest(int numbers[]){    //get largest and smallest value
+    public static void getLargest(int numbers[]){    //1) get largest and smallest value
         int largest = Integer.MIN_VALUE;
         int smallest = Integer.MAX_VALUE;
 
@@ -18,7 +18,7 @@ public class PractiseSheet1{
         System.out.println(smallest);
     }
 
-    public static void reveseArray(int arr[]){    //reverse array
+    public static void reveseArray(int arr[]){    //2) reverse array
         int first =0,last = arr.length-1;
 
         while(first < last){
@@ -33,7 +33,7 @@ public class PractiseSheet1{
     }
 
     
-    public static void SortArray(int arr[]){           //0s 1s 2s in array
+    public static void SortArray(int arr[]){           //3) 0s 1s 2s in array
     int size = arr.length;
     Arrays.sort(arr);
 
@@ -43,16 +43,94 @@ public class PractiseSheet1{
     System.out.println();
 }
 
+ 
+public static void NegativeArrays(int arr[]){   
+    Arrays.sort(arr);                                       //4) move all the negative numbers to starting
+    int [] temp = new int[arr.length];
+    int index =0;
+    
+    for(int i=0;i<arr.length;i++){ //negatives
+        if(arr[i] < 0){
+            temp[index++] = arr[i];
+        }
+    }
+
+    for(int i=0;i<arr.length;i++){
+      if(arr[i] >= 0){
+        temp[index++] = arr[i];
+      }
+    }
+
+    for(int i=0;i<arr.length;i++){
+        arr[i] = temp[i];
+    }  
+}
+
+ public static void kadanes(int numbers[]){         //8) kadanes algorithm to find max subarray sum
+        int ms = Integer.MIN_VALUE;
+        int cs =0;
+
+        for(int i=0;i<numbers.length;i++){
+            cs = cs + numbers[i];
+            if(cs < 0){
+                cs =0;
+            }
+            ms = Math.max(cs,ms);
+        }
+        System.out.println("our max subarray is: "+ ms);
+    }
+
+
+
+    public static void SubArrayMul(int numbers[]){     //max subarray product only for positive     
+        int ms = Integer.MIN_VALUE;
+        int cs =1;
+
+        for(int i=0;i<numbers.length;i++){
+            if(numbers[i]> 0){
+                cs = cs * numbers[i];
+                 ms = Math.max(cs,ms);
+            }
+            else{
+                cs =1;
+            }
+        }
+        System.out.println("our max subarray is: "+ ms);
+    }
+
+
+    public static int SortedArrayIntersection(int arr1[], int arr2[]) {   //to find intesection of two sorted array
+       ArrayList<Integer> ar = new ArrayList<Integer>();
+      //adding
+      int i=0;
+      while (i<= arr1.length-1) {
+        ar.add(arr1[i]);
+        i++;
+      }
+      //checking
+      int j =0;
+      while(j <= arr2.length-1){
+        if(ar.contains(arr2[j])){
+            return arr2[j];
+        }
+        j++;
+      }
+      return -1;
+    }
+
+
 
 
     public static void main(String args[]){
-     int numbers[] ={0,4,1,0,1,5,2,4};
+     int arr1[] ={1,2,3,4,7,8,9};
+     int arr2[] ={5,6,7,8,9,10};
+     
     //  reveseArray(numbers);
     //  for(int i=0;i<numbers.length;i++){
     //   System.out.println(numbers[i]);
     //  }
+System.out.println(SortedArrayIntersection(arr1, arr2));
 
-    SortArray(numbers);
   
     }
 }
