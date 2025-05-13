@@ -2,7 +2,7 @@ import java.util.*;
 
 public class PractiseSheet1{
 
-    public static void getLargest(int numbers[]){    //1) get largest and smallest value
+    public static void getLargest(int numbers[]){    //1) get max and min  value
         int largest = Integer.MIN_VALUE;
         int smallest = Integer.MAX_VALUE;
 
@@ -18,7 +18,17 @@ public class PractiseSheet1{
         System.out.println(smallest);
     }
 
-    public static void reveseArray(int arr[]){    //2) reverse array
+
+
+
+
+
+
+
+
+
+
+    public static void reveseArray(int arr[]){    //2)   reverse array at their position
         int first =0,last = arr.length-1;
 
         while(first < last){
@@ -28,9 +38,10 @@ public class PractiseSheet1{
 
             first++;
             last--;
-        }
-        
+        }  
     }
+
+
 
     
     public static void SortArray(int arr[]){           //3) 0s 1s 2s in array
@@ -66,7 +77,11 @@ public static void NegativeArrays(int arr[]){
     }  
 }
 
- public static void kadanes(int numbers[]){         //8) kadanes algorithm to find max subarray sum
+
+
+
+
+ public static void kadanes(int numbers[]){         // 8)kadane's algorithm to find max subarray sum
         int ms = Integer.MIN_VALUE;
         int cs =0;
 
@@ -77,12 +92,15 @@ public static void NegativeArrays(int arr[]){
             }
             ms = Math.max(cs,ms);
         }
-        System.out.println("our max subarray is: "+ ms);
+        System.out.println("our max subarray sum  is: "+ ms);
     }
 
 
 
-    public static void SubArrayMul(int numbers[]){     //max subarray product only for positive     
+
+
+
+    public static void SubArrayMul(int numbers[]){     //20) max subarray product only for positive     
         int ms = Integer.MIN_VALUE;
         int cs =1;
 
@@ -99,7 +117,7 @@ public static void NegativeArrays(int arr[]){
     }
 
 
-    public static int SortedArrayIntersection(int arr1[], int arr2[]) {   //to find intesection of two sorted array
+    public static int SortedArrayIntersection(int arr1[], int arr2[]) {   //17) to find intesection of two sorted array
        ArrayList<Integer> ar = new ArrayList<Integer>();
       //adding
       int i=0;
@@ -121,16 +139,32 @@ public static void NegativeArrays(int arr[]){
 
 
 
+
+
+    public static void PairSum(int arr[], int target){      // find pair sum in sorted array
+    int left =0;
+    int right = arr.length-1;
+    
+    while(left < right){
+        int sum = arr[left] + arr[right];
+        if(sum == target){
+            System.out.println("Pair found: " +"("+ arr[left] + "," + arr[right]+")");
+            return;
+        }
+        else if(sum < target){
+            left++;
+        }
+        else{
+            right--;
+        }
+    }
+   
+    }
     public static void main(String args[]){
      int arr1[] ={1,2,3,4,7,8,9};
-     int arr2[] ={5,6,7,8,9,10};
+        int target = 10;
+     int arr2[] ={1,2,3,4,5};
      
-    //  reveseArray(numbers);
-    //  for(int i=0;i<numbers.length;i++){
-    //   System.out.println(numbers[i]);
-    //  }
-System.out.println(SortedArrayIntersection(arr1, arr2));
-
-  
+    PairSum(arr1,target);
     }
 }
