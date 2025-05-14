@@ -55,8 +55,16 @@ public class PractiseSheet1{
 }
 
  
-public static void NegativeArrays(int arr[]){   
-    Arrays.sort(arr);                                       //4) move all the negative numbers to starting
+public static void NegativeArrays(int arr[]){        //rearrange the array the negative and positive elements in array
+     for(int i=0;i<arr.length;i++){
+       for(int j=i+1;j<arr.length;j++){
+           if(arr[i] > arr[j]){
+            int temp= arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+           }
+       }
+     }                                      
     int [] temp = new int[arr.length];
     int index =0;
     
@@ -66,7 +74,7 @@ public static void NegativeArrays(int arr[]){
         }
     }
 
-    for(int i=0;i<arr.length;i++){
+    for(int i=0;i<arr.length;i++){//positive
       if(arr[i] >= 0){
         temp[index++] = arr[i];
       }
@@ -141,7 +149,7 @@ public static void NegativeArrays(int arr[]){
 
 
 
-    public static void PairSum(int arr[], int target){      // find pair sum in sorted array
+    public static void PairSum(int arr[], int target){      //13) find pair sum in sorted array
     int left =0;
     int right = arr.length-1;
     
@@ -158,13 +166,78 @@ public static void NegativeArrays(int arr[]){
             right--;
         }
     }
-   
     }
+
+
+
+    
+
+
+    public static int trappedRainWater(int height[]){   //18)trapped rain water problem
+  int n= height.length;
+
+  //calculate left max boundary
+  int leftmax[] = new int[n];
+  leftmax[0] = height[0];
+  for(int i=1;i<n;i++){
+    leftmax[i] = Math.max(height[i],leftmax[i-1]);
+  }
+
+  //calculate right max
+  int rightmax[] = new int[n];
+  rightmax[n-1] = height[n-1];
+  for(int i=n-2;i>=0;i--){
+    rightmax[i] = Math.max(height[i],rightmax[i+1]);
+  }
+  int trappedwater =0;
+  for(int i=0;i<n;i++){
+    int waterLevel = Math.min(leftmax[i],rightmax[i]);
+    //trapped water = wterLevel - height[i]
+    trappedwater += waterLevel - height[i];
+  }
+  return trappedwater;
+}
+
+
+
+public static void Occurence(int numbers[]) {      //12) to find occurance of element
+
+        for (int i = 0; i < numbers.length; i++) {
+            int count = 0;
+            boolean counted = false;
+
+            for (int k = 0; k < i; k++) {
+                if (numbers[i] == numbers[k]) {
+                    counted = true;
+                    break;
+                }
+            }
+            if (counted)
+                continue;
+
+            for (int j = i; j < numbers.length; j++) {
+                if (numbers[i] == numbers[j]) {
+                    count++;
+                }
+            }
+            System.out.println(numbers[i] + " ocuured " + count + " times ");
+
+        }
+
+    }
+
+
+
+    
     public static void main(String args[]){
      int arr1[] ={1,2,3,4,7,8,9};
         int target = 10;
-     int arr2[] ={1,2,3,4,5};
+     int arr2[] ={6,-8,1,2,-5,6};
      
-    PairSum(arr1,target);
+    NegativeArrays(arr2);
+    for(int i=0;i<arr2.length-1;i++){
+        System.out.print(arr2[i]+" ");
+    }
+
     }
 }
