@@ -44,7 +44,7 @@ public class PractiseSheet1{
 
 
     
-    public static void SortArray(int arr[]){           //3) 0s 1s 2s in array
+    public static void SortArray(int arr[]){           // 0s 1s 2s in array
     int size = arr.length;
     Arrays.sort(arr);
 
@@ -55,7 +55,7 @@ public class PractiseSheet1{
 }
 
  
-public static void NegativeArrays(int arr[]){        //rearrange the array the negative and positive elements in array
+public static void NegativeArrays(int arr[]){        //5) rearrange the array the negative and positive elements in array
      for(int i=0;i<arr.length;i++){
        for(int j=i+1;j<arr.length;j++){
            if(arr[i] > arr[j]){
@@ -163,10 +163,12 @@ public static void NegativeArrays(int arr[]){        //rearrange the array the n
             left++;
         }
         else{
-            right--;
+            right--; 
         }
     }
     }
+
+
 
 
 
@@ -200,8 +202,7 @@ public static void NegativeArrays(int arr[]){        //rearrange the array the n
 
 
 
-public static void Occurence(int numbers[]) {      //12) to find occurance of element
-
+public static void Occurence(int numbers[]) {               //12) to find occurance of element
         for (int i = 0; i < numbers.length; i++) {
             int count = 0;
             boolean counted = false;
@@ -221,23 +222,132 @@ public static void Occurence(int numbers[]) {      //12) to find occurance of el
                 }
             }
             System.out.println(numbers[i] + " ocuured " + count + " times ");
-
         }
-
     }
 
 
+   public static void duplicate(int arr[]){                       // 16) to find duplicate element in array
+    for(int i=0;i<arr.length;i++){
+        for(int j=arr.length -1;j>i;j--){
+            if(arr[i] == arr[j]){
+                System.out.println("duplicate element is: " + arr[i]);
+                break;
+            }
+        }
+    }
+   }
 
+  
+   public static int findMissing(int arr[]){         //15)find missing number in sorted array
+    Arrays.sort(arr);
+    for(int i=0;i<arr.length-1;i++){
+        if(arr[i+1] != arr[i]+ 1){
+            return arr[i]+1;
+        }
+     }
+   for(int i=0;i<arr.length;i++){
+        if(arr[i+1] != arr[i]+ 1){
+            return arr[i]+1;
+        }
+     }
+   
+   return -1;
+   }
+
+   public static void alternatePositiveNegative(int arr[]){      // 11) rearrange the array in alternate positive and negative
+    int n = arr.length;
+    int temp[] = new int[n];
+    int positionIdx = 0, negativeIdx = 1;
+
+    for(int i=0;i< n;i++){
+        if(arr[i] >= 0){
+            if(positionIdx < n){
+                temp[positionIdx] = arr[i];
+                positionIdx += 2;
+            }
+        }
+            else{
+                if(negativeIdx < n){
+                temp[negativeIdx] = arr[i];
+                negativeIdx += 2;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            arr[i] = temp[i];
+        }  
+    for(int i=0;i<n;i++){
+        System.out.print(arr[i]+" ");
+    }
+     System.out.println();   
     
+   }
+
+
+
+   public static boolean isSortedAndRotated(int arr[]){          //  9) check if the array is sorted and rotated
+    int n = arr.length;
+    int count =0;
+
+    for(int i=0;i<n;i++){
+        if(arr[i] > arr[(i+1) % n]){
+            count++;
+        }
+    }
+    return count == 1;
+
+   }
+
+
+   public static void targetSubarraySum(int numbers[],int target){    //14) find target subarray sum
+               
+       // int ms = Integer.MIN_VALUE;
+        int cs =0;
+        int start =0;
+
+        for(int i=0;i<numbers.length;i++){
+            cs += numbers[i];
+           
+            while(cs > target && start <= i){
+               cs -= numbers[start];
+               start++;
+            }
+
+
+            if(cs == target){
+                System.out.println("target subarray sum is: "+ target+" found between "+start+" and "+ i);
+                return;
+            }
+        }    
+    }
+
+   
+       public static void leaderarray(int arr[]){       //10) find leader in array
+            for(int i=0;i<arr.length-1;i++){
+                int curr = arr[i];
+                boolean isLeader = true;
+                for(int j=i+1;j<arr.length;j++){
+                    if(curr < arr[j]){
+                        isLeader = false;
+                        break;
+                    }
+                }
+                if(isLeader){
+                    System.out.println(curr + " is a leader");
+                }
+            }
+       }
+
+       
+
+   
     public static void main(String args[]){
      int arr1[] ={1,2,3,4,7,8,9};
         int target = 10;
-     int arr2[] ={6,-8,1,2,-5,6};
-     
-    NegativeArrays(arr2);
-    for(int i=0;i<arr2.length-1;i++){
-        System.out.print(arr2[i]+" ");
-    }
+     int arr2[] ={5,7,1,2,8,4,3};
 
-    }
+   
+    leaderarray(arr2);
+    
+}
 }
