@@ -237,6 +237,12 @@ public static void Occurence(int numbers[]) {               //12) to find occura
     }
    }
 
+
+
+
+
+
+
   
    public static int findMissing(int arr[]){         //15)find missing number in sorted array
     Arrays.sort(arr);
@@ -253,6 +259,15 @@ public static void Occurence(int numbers[]) {               //12) to find occura
    
    return -1;
    }
+
+
+
+
+
+
+
+
+
 
    public static void alternatePositiveNegative(int arr[]){      // 11) rearrange the array in alternate positive and negative
     int n = arr.length;
@@ -279,10 +294,8 @@ public static void Occurence(int numbers[]) {               //12) to find occura
     for(int i=0;i<n;i++){
         System.out.print(arr[i]+" ");
     }
-     System.out.println();   
-    
+     System.out.println();    
    }
-
 
 
    public static boolean isSortedAndRotated(int arr[]){          //  9) check if the array is sorted and rotated
@@ -313,7 +326,6 @@ public static void Occurence(int numbers[]) {               //12) to find occura
                start++;
             }
 
-
             if(cs == target){
                 System.out.println("target subarray sum is: "+ target+" found between "+start+" and "+ i);
                 return;
@@ -338,16 +350,51 @@ public static void Occurence(int numbers[]) {               //12) to find occura
             }
        }
 
+
+ public static void unionIntersectionArray(int arr1[], int arr2[]){                    //6 ) union and intersection of array
+   System.out.println("union of elelments ");
+        for(int i=0;i<arr1.length;i++){
+            for(int j= 0;j<arr2.length;j++){
+                if(arr1[i] == arr2[j]){
+                    System.out.println(arr1[i]);
+                    break;
+                }
+            }  
+        }
+    System.out.println("intersection elelments ");
+      for(int i=0;i<arr2.length;i++){
+        boolean found = false;
+        for(int j=0;j<arr1.length;j++){
+            if(arr1[j] == arr2[i]){
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println(arr2[i]);
+        }
+      }    
+        
+
+        }
+
        
 
    
     public static void main(String args[]){
-     int arr1[] ={1,2,3,4,7,8,9};
+     int arr1[] ={1,2,3,4,6};
         int target = 10;
-     int arr2[] ={5,7,1,2,8,4,3};
+     int arr2[] ={1,2,3,4,5};
 
-   
-    leaderarray(arr2);
+
+
+    //  for(int i=0;i<arr1.length;i++){
+    //   System.out.print(arr2[i]+" ");
+    //  }
+    //   System.out.println();
+    // //  System.out.println("missing element is "+findMissing(arr1));
+
+  unionIntersectionArray(arr1, arr2); 
     
 }
 }
