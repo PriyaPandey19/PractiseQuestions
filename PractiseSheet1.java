@@ -333,6 +333,10 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         }    
     }
 
+
+
+
+
    
        public static void leaderarray(int arr[]){       //10) find leader in array
             for(int i=0;i<arr.length-1;i++){
@@ -349,6 +353,12 @@ public static void Occurence(int numbers[]) {               //12) to find occura
                 }
             }
        }
+
+
+
+
+
+
 
 
  public static void unionIntersectionArray(int arr1[], int arr2[]){                    //6 ) union and intersection of array
@@ -375,7 +385,16 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         }
       }    
         
+        }
 
+        public static void cycyleRotateByOne(int arr[]){            //cyclly rotate by one
+         int n =arr.length;
+         int last = arr[n-1]; 
+         
+         for(int i= n-1;i>0;i--){
+            arr[i] = arr[i-1];
+         }
+         arr[0] = last;
         }
 
        
@@ -384,17 +403,19 @@ public static void Occurence(int numbers[]) {               //12) to find occura
     public static void main(String args[]){
      int arr1[] ={1,2,3,4,6};
         int target = 10;
-     int arr2[] ={1,2,3,4,5};
+     int arr2[] ={1,2,7,4,6};
 
 
 
-    //  for(int i=0;i<arr1.length;i++){
-    //   System.out.print(arr2[i]+" ");
-    //  }
-    //   System.out.println();
+     for(int i=0;i<arr1.length;i++){
+      System.out.print(arr1[i]+" ");
+     }
+       System.out.println();
     // //  System.out.println("missing element is "+findMissing(arr1));
 
-  unionIntersectionArray(arr1, arr2); 
-    
+      cycyleRotateByOne(arr1); 
+      for(int i=0;i<arr1.length;i++){
+      System.out.print(arr1[i]+" ");
+     }
 }
 }
