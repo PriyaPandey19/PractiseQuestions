@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PractiseSheet1{
+public class PractiseSheetArray{
 
     public static void getLargest(int numbers[]){    //1) get max and min  value
         int largest = Integer.MIN_VALUE;
@@ -245,23 +245,26 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
   
    public static int findMissing(int arr[]){         //15)find missing number in sorted array
-    Arrays.sort(arr);
+     for(int i=0;i<arr.length;i++){
+       for(int j=i+1;j<arr.length;j++){
+           if(arr[i] > arr[j]){
+            int temp= arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+           }
+       }
+     } 
     for(int i=0;i<arr.length-1;i++){
         if(arr[i+1] != arr[i]+ 1){
             return arr[i]+1;
         }
-     }
-   for(int i=0;i<arr.length;i++){
-        if(arr[i+1] != arr[i]+ 1){
-            return arr[i]+1;
-        }
-     }
+    }
    
    return -1;
    }
 
 
-
+  
 
 
 
@@ -298,6 +301,9 @@ public static void Occurence(int numbers[]) {               //12) to find occura
    }
 
 
+
+
+
    public static boolean isSortedAndRotated(int arr[]){          //  9) check if the array is sorted and rotated
     int n = arr.length;
     int count =0;
@@ -308,8 +314,13 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         }
     }
     return count == 1;
-
    }
+
+
+
+
+
+
 
 
    public static void targetSubarraySum(int numbers[],int target){    //14) find target subarray sum
@@ -387,7 +398,10 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         
         }
 
-        public static void cycyleRotateByOne(int arr[]){            //cyclly rotate by one
+
+
+
+        public static void cycyleRotateByOneRight(int arr[]){            //7) cyclly rotate by one
          int n =arr.length;
          int last = arr[n-1]; 
          
@@ -397,25 +411,108 @@ public static void Occurence(int numbers[]) {               //12) to find occura
          arr[0] = last;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //  public static void cycyleRotateByOneStart(int arr[]){            //cyclly rotate by one
+        //  int n =arr.length;
+        //  int first = arr[0]; 
+         
+        //  for(int i= 0;i<n-1;i++){
+        //     arr[i] = arr[i+1];
+        //  }
+        //  arr[n-1] = first;
+        // }
+
+
+    public static void MergeTwoArray(){                              //merge two sorted array without using extra space
+      int s[] = {2,3, 0,0};
+      int p[] = {4,5};
+     int m =2;
+     int n = p.length;
+     int i= m-1;
+     int j = n-1;
+     int k = m+n -1;
+     for(;k >= 0;k--){
+        if(j < 0){
+            break;
+        }
+        if(i >= 0 && s[i] > p[j]){
+           s[k] = s[i];
+           i--;
+        }
+        else{
+            s[k] = p[j];
+            j--;
+        }
+     }
+     for(int num : s){
+        System.out.println(num +" ");
+     }
+    }
+
+
+    
+
+    public static void KthLargestSmallest(int arr[],int k){
+      Arrays.sort(arr);  
+      System.out.println("Kth smallest " + arr[k-1]);
+
+      System.out.println("kth largets "+ arr[arr.length - k]);
+      }
+
+
+
+      public static void sort0s1s2s(int arr[]){
+             
+      }
+
+
+
+
+
+
+
+
+       
+    
+
+
+
+    
+
+
        
 
    
-    public static void main(String args[]){
-     int arr1[] ={1,2,3,4,6};
-        int target = 10;
-     int arr2[] ={1,2,7,4,6};
+    public static void main(String args[]){    //235,230,98
+     int arr1[] ={-2,7,6,-2,5,-3,0};
+    int target = 10;
+     int arr2[] ={1,2,3,4,5};
+    //    for(int i=0;i<arr2.length;i++){
+    //     System.out.print(arr2[i]+" ");
+    //  }
+     System.out.println();
 
-
-
-     for(int i=0;i<arr1.length;i++){
-      System.out.print(arr1[i]+" ");
+     //System.out.println("Missing number is "+findMissing(arr2));
+   
+     for(int i=0;i<arr2.length;i++){
+        System.out.print(arr2[i]+" ");
      }
-       System.out.println();
-    // //  System.out.println("missing element is "+findMissing(arr1));
-
-      cycyleRotateByOne(arr1); 
-      for(int i=0;i<arr1.length;i++){
-      System.out.print(arr1[i]+" ");
+     System.out.println();
+    cycyleRotateByOneRight(arr2);
+    for(int i=0;i<arr2.length;i++){
+        System.out.print(arr2[i]+" ");
      }
 }
 }
