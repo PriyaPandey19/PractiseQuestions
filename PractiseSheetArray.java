@@ -125,6 +125,10 @@ public static void NegativeArrays(int arr[]){        //5) rearrange the array th
     }
 
 
+
+
+
+
     public static int SortedArrayIntersection(int arr1[], int arr2[]) {   //17) to find intesection of two sorted array
        ArrayList<Integer> ar = new ArrayList<Integer>();
       //adding
@@ -457,7 +461,7 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         }
      }
      for(int num : s){
-        System.out.println(num +" ");
+        System.out.print(num +" ");
      }
     }
 
@@ -495,24 +499,19 @@ public static void Occurence(int numbers[]) {               //12) to find occura
        
 
    
-    public static void main(String args[]){    //235,230,98
-     int arr1[] ={-2,7,6,-2,5,-3,0};
+    public static void main(String args[]){    
+     int arr1[] ={1,2,3,4};
     int target = 10;
-     int arr2[] ={1,2,3,4,5};
-    //    for(int i=0;i<arr2.length;i++){
+     int arr2[] ={5,6,7,8,3,2};
+    
+       for(int i=0;i<arr2.length;i++){
+        System.out.print(arr2[i]+" ");
+     }
+     System.out.println();
+      PairSum(arr2, target);
+    
+    // for(int i=0;i<arr2.length;i++){
     //     System.out.print(arr2[i]+" ");
     //  }
-     System.out.println();
-
-     //System.out.println("Missing number is "+findMissing(arr2));
-   
-     for(int i=0;i<arr2.length;i++){
-        System.out.print(arr2[i]+" ");
-     }
-     System.out.println();
-    cycyleRotateByOneRight(arr2);
-    for(int i=0;i<arr2.length;i++){
-        System.out.print(arr2[i]+" ");
-     }
 }
 }
