@@ -14,8 +14,8 @@ public class PractiseSheetArray{
                 smallest = numbers[i];
             }
         }
-        System.out.println(largest);
-        System.out.println(smallest);
+        System.out.println("Max element is "+largest);
+        System.out.println("Min element is "+smallest);
     }
 
 
@@ -308,6 +308,8 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
 
 
+
+
    public static boolean isSortedAndRotated(int arr[]){          //  9) check if the array is sorted and rotated
     int n = arr.length;
     int count =0;
@@ -440,8 +442,8 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
 
     public static void MergeTwoArray(){                              //merge two sorted array without using extra space
-      int s[] = {2,3, 0,0};
-      int p[] = {4,5};
+      int s[] = {2,3,0,0,0};
+      int p[] = {4,5,6};
      int m =2;
      int n = p.length;
      int i= m-1;
@@ -500,15 +502,21 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
    
     public static void main(String args[]){    
-     int arr1[] ={1,2,3,4};
+     int arr1[] ={4,2,7,5};
     int target = 10;
-     int arr2[] ={5,6,7,8,3,2};
+    // int arr2[] ={5,6,7,8,3,2};
+    // MergeTwoArray();
+
+
+        for(int i=0;i<arr1.length;i++){
+         System.out.print(arr1[i]+" ");
+  }
+  System.out.println();
+     getLargest(arr1);
     
-       for(int i=0;i<arr2.length;i++){
-        System.out.print(arr2[i]+" ");
-     }
-     System.out.println();
-      PairSum(arr2, target);
+    
+    //  System.out.println();
+    //   PairSum(arr2, target);
     
     // for(int i=0;i<arr2.length;i++){
     //     System.out.print(arr2[i]+" ");
