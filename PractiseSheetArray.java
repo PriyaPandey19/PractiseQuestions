@@ -65,21 +65,17 @@ public static void NegativeArrays(int arr[]){        //5) rearrange the array th
            }
        }
      }                                      
-    int [] temp = new int[arr.length];
-    int index =0;
-    
+    int [] temp = new int[arr.length];int index =0; 
     for(int i=0;i<arr.length;i++){ //negatives
         if(arr[i] < 0){
             temp[index++] = arr[i];
         }
     }
-
     for(int i=0;i<arr.length;i++){//positive
       if(arr[i] >= 0){
         temp[index++] = arr[i];
       }
     }
-
     for(int i=0;i<arr.length;i++){
         arr[i] = temp[i];
     }  
@@ -228,6 +224,9 @@ public static void Occurence(int numbers[]) {               //12) to find occura
             System.out.println(numbers[i] + " ocuured " + count + " times ");
         }
     }
+
+
+    
 
 
    public static void duplicate(int arr[]){                       // 16) to find duplicate element in array
@@ -379,16 +378,16 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
 
  public static void unionIntersectionArray(int arr1[], int arr2[]){                    //6 ) union and intersection of array
-   System.out.println("union of elelments ");
+   System.out.println("intersection of elelments ");
         for(int i=0;i<arr1.length;i++){
             for(int j= 0;j<arr2.length;j++){
                 if(arr1[i] == arr2[j]){
-                    System.out.println(arr1[i]);
+                    System.out.println(arr1[i]+" ");
                     break;
                 }
             }  
         }
-    System.out.println("intersection elelments ");
+    System.out.println("union elelments ");
       for(int i=0;i<arr2.length;i++){
         boolean found = false;
         for(int j=0;j<arr1.length;j++){
@@ -398,7 +397,7 @@ public static void Occurence(int numbers[]) {               //12) to find occura
             }
         }
         if(!found){
-            System.out.println(arr2[i]);
+            System.out.print(arr2[i]+" ");
         }
       }    
         
@@ -502,17 +501,32 @@ public static void Occurence(int numbers[]) {               //12) to find occura
 
    
     public static void main(String args[]){    
-     int arr1[] ={4,2,7,5};
+     int arr1[] ={1,2,3,4,5};
     int target = 10;
-    // int arr2[] ={5,6,7,8,3,2};
-    // MergeTwoArray();
+     int arr2[] ={4,5,6,7,8};
 
 
-        for(int i=0;i<arr1.length;i++){
-         System.out.print(arr1[i]+" ");
-  }
-  System.out.println();
-     getLargest(arr1);
+unionIntersectionArray(arr1, arr2);
+   
+    // getLargest(arr1);
+    // reveseArray(arr1);
+    // for(int i=0;i<arr1.length;i++){
+    //     System.out.print(arr1[i]+" ");
+    // }
+    // System.out.println();
+    
+    // SortArray(arr2);
+    // for(int i=0;i<arr2.length;i++){
+    //     System.out.print(arr2[i]+" ");
+    // }
+    // System.out.println();
+    
+
+//         for(int i=0;i<arr1.length;i++){
+//          System.out.print(arr1[i]+" ");
+//   }
+//   System.out.println();
+//      getLargest(arr1);
     
     
     //  System.out.println();

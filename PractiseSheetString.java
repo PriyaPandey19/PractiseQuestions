@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class PractiseSheetString {
 
@@ -30,6 +30,12 @@ public static void isPalindromeOrNot(String str){     //22) is palindrome or not
         }
     
 }
+
+
+
+
+
+
 
 
 public static boolean checkAnagram(String s1,String s2){   //25 )to check if two strings are anagrams of each other
@@ -64,6 +70,9 @@ public static void printPermutation(String str, String ans){   //24) find permut
 }
 
 
+
+
+
   public static void removeDuplicate(String str){   //23) remove duplicate 
     for(int i=0;i<str.length();i++){
      boolean flag = true;
@@ -78,6 +87,10 @@ public static void printPermutation(String str, String ans){   //24) find permut
      }
   }
   }
+
+
+
+
 
 
     public static String compress(String str){              //31) to compress the string
@@ -98,6 +111,10 @@ public static void printPermutation(String str, String ans){   //24) find permut
     }
 
 
+
+
+
+
     public static String longestCommonPrefix(String[] str){      //27)longest common prefix
         if(str == null || str.length == 0)
           return "";
@@ -115,6 +132,8 @@ public static void printPermutation(String str, String ans){   //24) find permut
           }
           return prefix;
     }
+
+
 
 
 
@@ -183,6 +202,17 @@ public static boolean checkPalindrome(String str, int left, int right){
     return true;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 public static boolean validPalindrome(String str){         //30) valid palindrome after removing at most one element
     int left =0,right = str.length()-1;
     while (left<right) {
@@ -197,6 +227,11 @@ public static boolean validPalindrome(String str){         //30) valid palindrom
 
 
 
+
+
+
+
+
 public static boolean isSubsequence(String str1, String str2){   //35) check if one string is a subsequence of another
     int i =0; 
     int j=0;
@@ -208,6 +243,11 @@ public static boolean isSubsequence(String str1, String str2){   //35) check if 
     }
     return i == str1.length();
 }
+
+
+
+
+
 
 
 
@@ -237,21 +277,91 @@ public static boolean  IsrotationOrNot(String s1, String s2){     //34) Check if
 }
 
 
+public static String sortString(String str){     //group anagrams
+    char[] chars = str.toCharArray();
+
+    Arrays.sort(chars);
+    return new String(chars);
+}
+
+public static List<List<String>> grounpAnagrams(String[] s){    // 33 group anagram together 
+   List<List<String>> result = new ArrayList<>();
+   List<String> keys = new ArrayList<>();
+
+   for(String str : s){
+    String sorted = sortString(str);
+
+    boolean found = false;
+
+    for(int i=0;i<keys.size();i++){
+        if(keys.get(i).equals(sorted)){
+            result.get(i).add(str);
+            found = true;
+            break;
+        }
+    }
+    if(!found){
+        List<String> newGroup = new ArrayList<>();
+        newGroup.add(str);
+        result.add(newGroup);
+        keys.add(sorted);
+    }
+   }
+   return result;
+}
+
+
+
+
+
+
+
 
 
     
 
 
  public static void main(String args[]){
+    String str1 = "car is running";
+    String str2 = "running";
+    System.out.println("String 1 is : car is running");
+    System.out.println("String 2 is : running");
+    System.out.println(isSubsequence(str2, str1));
+    String[] s = {"eat","tea","tan","ate","nat","bat"};
+    System.out.println(grounpAnagrams(s));
+    // String str4 = "-123";
+    // String str = "racecar";
+    // System.out.println("string is :"+str);
+    // System.out.println(checkPalindrome(str, 0, str.length()-1));
+   // System.out.println(stringToInt(str4));
+    // String[] str ={"flower","fly","flow"};
+    // String str1 = "aaabbbbccvdd";
+   
+    // String str2 = "MyHello";
+    //  System.out.println("string is :"+str2);
+    // String str3 ="Hello";
+    // System.out.println("substring is :"+str3);
+    // System.out.println(subStringSearch(str2, str3));
+  // System.out.println(compress(str1)    );
+//    System.out.print("Array is :"); 
+//   for(int i=0;i<str.length;i++){
+//     System.out.print(str[i]+" ");
+//   }
+//   System.out.println();
+//     System.out.println(longestCommonPrefix(str));
+    // System.out.println("String is: madam ");
+    // isPalindromeOrNot("madam");
+    // System.out.println("String is : mam");
+    // printPermutation("mam", "");
    // String str1 = "abca";
-    System.out.println(IsrotationOrNot("abcd", "bdca"));
+   // System.out.println(IsrotationOrNot("abcd", "bdca"));
     // String str2 = "+123";
     // System.out.println(isSubsequence("priya", "priyanshi"));
     // System.out.println(stringToInt(str2));
     // System.out.println(validPalindrome(str1));
     //String str[] ={"interview","internet","internal"};
    //System.out.println(subStringSearch(str1, str2));  
-   //System.out.println(longestCommonPrefix(str));
+   
 
 //isPalindromeOrNot(str1);
   //System.out.println(compress(str2));
