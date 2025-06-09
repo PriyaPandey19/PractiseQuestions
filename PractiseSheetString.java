@@ -43,14 +43,21 @@ public static boolean checkAnagram(String s1,String s2){   //25 )to check if two
         return false;
     }
  
-    char ch1[] = s1.toCharArray();
-    Arrays.sort(ch1);
-
-    char ch2[] = s2.toCharArray();
-    Arrays.sort(ch2);
-
-    return Arrays.equals(ch1, ch2);
+    int[] count= new int[26];
+    for(int i=0;i<s1.length();i++){
+     count[s1.charAt(i) - 'a']++;
+     count[s2.charAt(i) - 'a']--;
+    }
+    for(int c: count){
+        if( c!= 0){
+            return false;
+        }
+    }
+    return true;
 }
+
+
+
 
 
 
@@ -232,6 +239,10 @@ public static boolean validPalindrome(String str){         //30) valid palindrom
 
 
 
+
+
+
+
 public static boolean isSubsequence(String str1, String str2){   //35) check if one string is a subsequence of another
     int i =0; 
     int j=0;
@@ -267,7 +278,6 @@ public static boolean isSubstring(String combined, String s2){
     return false;
 }
 
-
 public static boolean  IsrotationOrNot(String s1, String s2){     //34) Check if a string is a rotation of another string
  if(s1.length() != s2.length() || s1.length() ==0){
     return false;
@@ -277,13 +287,17 @@ public static boolean  IsrotationOrNot(String s1, String s2){     //34) Check if
 }
 
 
+
+
+
+
+
+
 public static String sortString(String str){     //group anagrams
     char[] chars = str.toCharArray();
-
     Arrays.sort(chars);
     return new String(chars);
 }
-
 public static List<List<String>> grounpAnagrams(String[] s){    // 33 group anagram together 
    List<List<String>> result = new ArrayList<>();
    List<String> keys = new ArrayList<>();
@@ -322,13 +336,29 @@ public static List<List<String>> grounpAnagrams(String[] s){    // 33 group anag
 
 
  public static void main(String args[]){
-    String str1 = "car is running";
-    String str2 = "running";
-    System.out.println("String 1 is : car is running");
-    System.out.println("String 2 is : running");
-    System.out.println(isSubsequence(str2, str1));
-    String[] s = {"eat","tea","tan","ate","nat","bat"};
-    System.out.println(grounpAnagrams(s));
+   String s1 = "tea";
+   String s2 = "eat";
+   System.out.println("String s1: tea");
+   System.out.println("String s2: eat");
+
+   System.out.println(checkAnagram(s1, s2));
+    // String s1 = "abca";
+    // String s2 = "cdab";
+    // System.out.println("String 1 is : abca");
+    // System.out.println("String 2 is : cdab");
+    // if(IsrotationOrNot(s1, s2)){
+    //     System.out.println(s2 + " is a rotation of " + s1);
+    // }
+    // else{
+    //    System.out.println(s2 + " is not  a rotation of " + s1);  
+   // }
+    // String str1 = "car is running";
+    // String str2 = "running";
+    // System.out.println("String 1 is : car is running");
+    // System.out.println("String 2 is : running");
+    // System.out.println(isSubsequence(str2, str1));
+    // String[] s = {"eat","tea","tan","ate","nat","bat"};
+    // System.out.println(grounpAnagrams(s));
     // String str4 = "-123";
     // String str = "racecar";
     // System.out.println("string is :"+str);
