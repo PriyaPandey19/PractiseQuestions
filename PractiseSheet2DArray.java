@@ -39,20 +39,53 @@ public class PractiseSheet2DArray {
 
 
 
+ static void dfs(int i, int j, char grid[][],int n,int m){
+        if(i<0 || j<0 || i == n|| j == m|| grid[i][j] == '0'){
+            return;
+        }
+        grid[i][j] ='0';
+        dfs(i+1,j,grid,n,m);
+        dfs(i-1,j,grid,n,m);
+        dfs(i,j+1,grid,n,m);
+        dfs(i,j-1,grid,n,m);
+    }
+    public static int numIslands(char[][] grid) {
+     int count=0;
+     int n = grid.length;
+     int m = grid[0].length;
+
+     for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(grid[i][j] == '1'){
+                count++;
+                dfs(i,j,grid,n,m);
+            }
+        }
+     } 
+     return count;  
+    }
+
+
+
     
         
 
     public static void main(String[] args) {
-        int m =3,n =3;
-        int mat[][] ={
-        {1,2,3},
-        {4,5,6},
-        {7,8,9}};
-         System.out.println("original matrix");
-        for (int i = 0; i < m; i++) {
-            System.out.println(Arrays.toString(mat[i]));
-        }
-        diagonal(mat);
+       
+ 
+
+        char[][] grid = {
+            {'1', '1', '0', '0', '0'},
+            {'1', '1', '0', '0', '0'},
+            {'0', '0', '1', '0', '0'},
+            {'0', '0', '0', '1', '1'}
+        };
+
+       
+        System.out.println("Number of islands: " + numIslands(grid));
+    
+
+
        
         // int[][] transposed = Transpose(m, n, mat);
         // System.out.println("\nTransposed Matrix:");

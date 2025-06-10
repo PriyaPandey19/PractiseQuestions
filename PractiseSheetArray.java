@@ -43,6 +43,16 @@ public class PractiseSheetArray{
 
 
 
+     public static void maxMin(int arr[],int k){
+        Arrays.sort(arr);
+    int kthSmallest = arr[k-1];
+    int kthLargest = arr[arr.length -k];
+
+    System.out.println(kthLargest);
+    System.out.println(kthSmallest);
+     }
+
+
     
     public static void SortArray(int arr[]){           // 0s 1s 2s in array
     int size = arr.length;
@@ -465,6 +475,32 @@ public static void Occurence(int numbers[]) {               //12) to find occura
         System.out.print(num +" ");
      }
     }
+
+    public static void dutchNational(int arr[]){
+ int low =0,mid =0,high = arr.length-1;
+ while (mid< high) {
+    if(arr[mid]== 0){
+        int temp = arr[mid];
+        arr[mid] = arr[low];
+        arr[low] = temp;
+        low++;
+        mid++;
+    }
+    else if(arr[mid] == 1){
+        mid++;
+    }
+    else{
+        int temp = arr[mid];
+        arr[mid] = arr[high];
+        arr[high] = temp; 
+        high--; 
+    }
+ }
+ for(int i=0;i<arr.length;i++)
+ System.out.println(arr[i]);
+
+
+}
 
 
     
