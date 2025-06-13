@@ -135,25 +135,43 @@ for(int i=0;i<arr1.length;i++){
 }
 
 public static void cyclicRotateByOne(int arr[]){
-int first = arr[0];
-int last = arr[arr.length-1];
-for(int i=0;i<arr.length-1;i++){
-    arr[i] = arr[i+1];
+    int n = arr.length;
+    int last = arr[n-1];
+    for(int i=n-1;i>0;i--){
+        arr[i] = arr[i-1];
+    }
+    arr[0] = last;
+    for(int i=0;i<arr.length;i++){
+        System.out.print(arr[i]+" ");
+    }
 }
-arr[arr.length-1] = first;
+
+public static void kadaneAlgorithm(int arr[]){
+    int ms = Integer.MIN_VALUE;
+    int cs = 0;
+    for(int i=0;i<arr.length;i++){
+        cs += arr[i];
+        if(cs < 0){
+            cs =0;
+        }
+        ms = Math.max(cs, ms);
+        
+
+    }
+    System.out.println("Maximum Subarray Sum: " + ms);
 }
 
 
-
-       
 
         
     
 
     public static void main(String[] args) {
-        int arr1[] ={2,3,4,6,1};
-        int arr2[] = {6,2,3,4,5};
-        unionIntersectionArray(arr1, arr2);
+        int arr1[] ={1,2,3,4,5,6};
+        kadaneAlgorithm(arr1);
+        //cyclicRotateByOne(arr1);
+       // int arr2[] = {6,2,3,4,5};
+        //unionIntersectionArray(arr1, arr2);
         
         //maxMin(arr, 2);     //1249
         //findMinMax(arr);
