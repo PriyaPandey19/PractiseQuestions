@@ -16,11 +16,37 @@ public class PractiseSheet2DArray {
 }
 
 
+public static void rotate90Clockwise(int[][] matrix) {
+        int n = matrix.length;
+
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                // Swap matrix[i][j] with matrix[j][i]
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            int left = 0, right = n - 1;
+            while (left < right) {
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+                left++;
+                right--;
+            }
+        }
+    }
 
 
 
 
- public static void diagonal(int matrix[][]) { // diagonal sum
+
+
+ public static void diagonal(int matrix[][]) { // 42) diagonal sum
     int sum = 0;
     System.out.print("Diagonal elements are: ");
     for (int i = 0; i < matrix.length; i++) {
@@ -39,7 +65,7 @@ public class PractiseSheet2DArray {
 
 
 
- static void dfs(int i, int j, char grid[][],int n,int m){
+ static void dfs(int i, int j, char grid[][],int n,int m){     //47) number of islands
         if(i<0 || j<0 || i == n|| j == m|| grid[i][j] == '0'){
             return;
         }
@@ -68,21 +94,50 @@ public class PractiseSheet2DArray {
 
 
     
+     public static boolean searchMatrix(int[][] matrix, int target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int i = 0, j = cols - 1;  // start from top-right
+
+        while (i < rows && j >= 0) {
+            if (matrix[i][j] == target) {
+                return true;
+            } else if (matrix[i][j] > target) {
+                j--; // move left
+            }  else {
+                i++; // move down
+            }
+        }
+
+        return false; // not found
+    }
+
+
+
+    
         
 
     public static void main(String[] args) {
        
  
-
-        char[][] grid = {
-            {'1', '1', '0', '0', '0'},
-            {'1', '1', '0', '0', '0'},
-            {'0', '0', '1', '0', '0'},
-            {'0', '0', '0', '1', '1'}
+        int[][] mat = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
         };
+        System.out.println(searchMatrix(mat, 8));
+        // System.out.println("original matrix is:");
+        // for (int i = 0; i < mat.length; i++) {
+        //     System.out.println(Arrays.toString(mat[i]));
+        // }
 
        
-        System.out.println("Number of islands: " + numIslands(grid));
+        // rotate90Clockwise(mat);
+        // System.out.println("Matrix after 90 degree rotation:");
+        // for (int i = 0; i < mat.length; i++) {
+        //     System.out.println(Arrays.toString(mat[i]));
+        // }
     
 
 

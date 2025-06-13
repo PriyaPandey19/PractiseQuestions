@@ -103,20 +103,46 @@ public static void positiveNegative(int arr[]){
 
 
 
+
 public static void unionIntersectionArray(int arr1[],int arr2[]){
-  int n = arr1.length+ arr2.length;
-  int temp[] = new int[n]; int index =0;
-  for(int i=0;i<arr1.length;i++){
+   for(int i=0;i<arr1.length;i++){
     for(int j=0;j<arr2.length;j++){
-    if(arr1[i] == arr2[j]){
-      temp[index++] = arr1[i];
+        if(arr1[i] == arr2[j]){
+            System.out.println(arr1[i]);
+        }
     }
-    } 
-  }
-  for(int i=0;i<temp.length;i++){
-    System.out.println(temp[i]);
-  }
 }
+
+int max = 0;
+    for (int val : arr1) max = Math.max(max, val);
+    for (int val : arr2) max = Math.max(max, val);
+
+    boolean[] found = new boolean[max + 1];
+  System.out.println("union");  
+for(int i=0;i<arr1.length;i++){
+   if(!found[arr1[i]]){
+    System.out.println(arr1[i]);
+    found[arr1[i]] = true;
+   }
+    for(int j=0;j<arr2.length;j++){
+   if(!found[arr2[j]]){
+     System.out.println(arr2[j]);
+    found[arr2[j]] = true;
+   }
+}
+}
+
+}
+
+public static void cyclicRotateByOne(int arr[]){
+int first = arr[0];
+int last = arr[arr.length-1];
+for(int i=0;i<arr.length-1;i++){
+    arr[i] = arr[i+1];
+}
+arr[arr.length-1] = first;
+}
+
 
 
        
