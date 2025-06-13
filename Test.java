@@ -161,16 +161,34 @@ public static void kadaneAlgorithm(int arr[]){
     System.out.println("Maximum Subarray Sum: " + ms);
 }
 
+public static void leadersInArray(int arr[]){
+    for(int i=0;i<arr.length-1;i++){
+        int curr = arr[i];
+        boolean isLeader = true;
+        for(int j=i+1;j<arr.length;j++){
+            if(curr < arr[j]){
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader){
+            System.out.println(curr);
+        }
+
+    }
+   
+}
+
+
+
 
 
         
     
 
     public static void main(String[] args) {
-        int arr1[] ={1,2,3,4,5,6};
-        kadaneAlgorithm(arr1);
-        //cyclicRotateByOne(arr1);
-       // int arr2[] = {6,2,3,4,5};
+        int arr1[] ={5,1,2,3,4};
+       leadersInArray(arr1);
         //unionIntersectionArray(arr1, arr2);
         
         //maxMin(arr, 2);     //1249
