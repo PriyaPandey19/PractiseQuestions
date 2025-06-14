@@ -144,6 +144,30 @@ public static void rotate90Clockwise(int[][] matrix) {
 
 
 
+    public static void boundaryTraversal(int[][] matrix) {
+    int n = matrix.length;
+    int m = matrix[0].length;
+    for (int j = 0; j < m; j++) {
+        System.out.print(matrix[0][j] + " ");
+    } 
+    for (int i = 1; i < n - 1; i++) {
+        System.out.print(matrix[i][m - 1] + " ");
+    }
+    if (n > 1) {
+        for (int j = m - 1; j >= 0; j--) {
+            System.out.print(matrix[n - 1][j] + " ");
+        }
+    }
+    if (m > 1) {
+        for (int i = n - 2; i > 0; i--) {
+            System.out.print(matrix[i][0] + " ");
+        }
+    }
+    System.out.println();
+}
+
+
+
 
    
 
@@ -161,21 +185,18 @@ public static void rotate90Clockwise(int[][] matrix) {
             {4, 5, 6},
             {7, 8, 9}
         };
+        System.out.println("original matrix");
+        for (int i = 0; i < mat.length; i++) {
+            System.out.println(Arrays.toString(mat[i]));
+        }
+    
         int [][] mat2 ={
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
         };
-        int[][] result = multiplyMatrices(mat, mat2);
-        System.out.println("Matrix Multiplication Result:");
-        printMatrix(result);
-        
-       // System.out.println(searchMatrix(mat, 8));
-        // System.out.println("original matrix is:");
-        // for (int i = 0; i < mat.length; i++) {
-        //     System.out.println(Arrays.toString(mat[i]));
-        // }
 
+        boundaryTraversal(mat2);
        
         // rotate90Clockwise(mat);
         // System.out.println("Matrix after 90 degree rotation:");
