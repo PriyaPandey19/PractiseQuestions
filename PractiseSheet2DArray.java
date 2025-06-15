@@ -166,6 +166,22 @@ public static void rotate90Clockwise(int[][] matrix) {
     System.out.println();
 }
 
+public static void printPascalTriangle(int n) {
+    for (int line = 0; line < n; line++) {
+        int val = 1;
+        
+        for (int space = 0; space < n - line - 1; space++) {
+            System.out.print(" ");
+        }
+       
+        for (int i = 0; i <= line; i++) {
+            System.out.print(val + " ");
+            val = val * (line - i) / (i + 1);
+        }
+        System.out.println();
+    }
+}
+
 
 
 
@@ -178,25 +194,27 @@ public static void rotate90Clockwise(int[][] matrix) {
         
 
     public static void main(String[] args) {
+        int n = 5; // Number of rows
+    printPascalTriangle(n);
        
  
-        int[][]mat = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
-        System.out.println("original matrix");
-        for (int i = 0; i < mat.length; i++) {
-            System.out.println(Arrays.toString(mat[i]));
-        }
+        // int[][]mat = {
+        //     {1, 2, 3},
+        //     {4, 5, 6},
+        //     {7, 8, 9}
+        // };
+        // System.out.println("original matrix");
+        // for (int i = 0; i < mat.length; i++) {
+        //     System.out.println(Arrays.toString(mat[i]));
+        // }
     
-        int [][] mat2 ={
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
+        // int [][] mat2 ={
+        //     {1, 2, 3},
+        //     {4, 5, 6},
+        //     {7, 8, 9}
+        // };
 
-        boundaryTraversal(mat2);
+        // boundaryTraversal(mat2);
        
         // rotate90Clockwise(mat);
         // System.out.println("Matrix after 90 degree rotation:");
