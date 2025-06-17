@@ -214,6 +214,43 @@ public static void printPascalTriangle(int n) {
         dfs(grid, i, j - 1); // left
     }
 
+     public static int findMedian(int[][] matrix) {
+        int r = matrix.length;
+        int c = matrix[0].length;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < r; i++) {
+            min = Math.min(min, matrix[i][0]);
+            max = Math.max(max, matrix[i][c - 1]);
+        }
+        int desired = (r * c + 1) / 2;
+        while(min < max) {
+            int mid = min + (max - min) / 2;
+            int count = 0;
+            for(int i = 0; i < r; i++) {
+                count += countSmallerOrEqual(matrix[i], mid);
+            }
+            if(count < desired) {
+                min = mid + 1;
+            } else {
+                max = mid;
+            }
+        }
+        return min;
+    }
+   public static int countSmallerOrEqual(int[] row, int target) {
+        int l = 0, h = row.length;
+        while(l < h) {
+            int mid = l + (h - l) / 2;
+            if(row[mid] <= target)
+                l = mid + 1;
+            else
+                h = mid;
+        }
+        return l;
+    }
+
+
 
 
 
@@ -227,14 +264,12 @@ public static void printPascalTriangle(int n) {
         
 
     public static void main(String[] args) {
-         char[][] grid = {
-            {'1','1','0','0','0'},
-            {'1','1','0','0','0'},
-            {'0','0','1','0','0'},
-            {'0','0','0','1','1'}
+         int[][] matrix = {
+            {1, 3, 5},
+            {2, 6, 9},
+            {3, 6, 9}
         };
-
-        System.out.println("Number of islands: " + numIslands(grid)); // Output: 3
+        System.out.println("Median is: " + findMedian(matrix)); // Output: 5
       
        
  
