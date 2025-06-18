@@ -252,6 +252,28 @@ public static void printPascalTriangle(int n) {
 
 
 
+    
+
+
+ public static void printSnakePattern(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        for(int i = 0; i < rows; i++) {
+            if(i % 2 == 0) {
+                // left to right
+                for(int j = 0; j < cols; j++) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+            } else {
+                // right to left
+                for(int j = cols - 1; j >= 0; j--) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+            }
+        }
+    }
+
 
 
 
@@ -269,7 +291,8 @@ public static void printPascalTriangle(int n) {
             {2, 6, 9},
             {3, 6, 9}
         };
-        System.out.println("Median is: " + findMedian(matrix)); // Output: 5
+        //System.out.println("Median is: " + findMedian(matrix)); // Output: 5
+        printSnakePattern(matrix);
       
        
  
