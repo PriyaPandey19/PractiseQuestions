@@ -317,6 +317,37 @@ public static void printPascalTriangle(int n) {
 
 
 
+    public static void booleanMatrix(int[][] mat) {
+        int R = mat.length;
+        int C = mat[0].length;
+
+        boolean[] row = new boolean[R];
+        boolean[] col = new boolean[C];
+
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                if (mat[i][j] == 1) {
+                    row[i] = true;
+                    col[j] = true;
+                }
+            }
+        }
+
+      
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                if (row[i] || col[j]) {
+                    mat[i][j] = 1;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
 
 
    
@@ -328,19 +359,18 @@ public static void printPascalTriangle(int n) {
         
 
     public static void main(String[] args) {
-        int[][] matrix = {
-        {1, 2, 3},
-        {4, 0, 6},
-        {7, 8, 9}
-    };
+      int[][] mat = {
+            {1, 0, 0},
+            {0, 0, 0},
+            {0, 0, 0}
+        };
 
-    System.out.println("Original Matrix:");
-    printMatrix(matrix);
+        System.out.println("Original Matrix:");
+        printMatrix(mat);
+        booleanMatrix(mat);
 
-   setZeroes(matrix);
-
-    System.out.println("\nMatrix after setting zeros:");
-    printMatrix(matrix);
+        System.out.println("\nModified Matrix:");
+        printMatrix(mat);
        
  
         // int[][]mat = {
