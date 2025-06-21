@@ -346,6 +346,26 @@ public static void printPascalTriangle(int n) {
 
 
 
+    public static  boolean searchMatrix2(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        int low = 0, high = m * n - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int midElement = matrix[mid / n][mid % n];
+
+            if (midElement == target) return true;
+            else if (midElement < target) low = mid + 1;
+            else high = mid - 1;
+        }
+
+        return false;
+    }
+
+
+
+
+
 
 
 
@@ -359,18 +379,14 @@ public static void printPascalTriangle(int n) {
         
 
     public static void main(String[] args) {
-      int[][] mat = {
-            {1, 0, 0},
-            {0, 0, 0},
-            {0, 0, 0}
+      int[][] matrix = {
+            {1, 3, 5, 7},
+            {10, 11, 16, 20},
+            {23, 30, 34, 60}
         };
-
-        System.out.println("Original Matrix:");
-        printMatrix(mat);
-        booleanMatrix(mat);
-
-        System.out.println("\nModified Matrix:");
-        printMatrix(mat);
+        int target = 3;
+        System.out.println("target "+target);
+        System.out.println(searchMatrix2(matrix, target));
        
  
         // int[][]mat = {
