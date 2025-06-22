@@ -363,8 +363,39 @@ public static void printPascalTriangle(int n) {
     }
 
 
+    
+    
+    
 
 
+public static int Occurrence(int[][] matrix) {
+    int maxElement = Integer.MIN_VALUE;
+    for (int i = 0; i < matrix.length; i++) {
+        for (int j = 0; j < matrix[i].length; j++) {
+            maxElement = Math.max(maxElement, matrix[i][j]);
+        }
+    }
+
+    int[] freq = new int[maxElement + 1];
+
+
+    for (int i = 0; i < matrix.length; i++) {
+        for (int j = 0; j < matrix[i].length; j++) {
+            freq[matrix[i][j]]++;
+        }
+    }
+
+    int maxFreq = 0;
+    System.out.println("Element : Frequency");
+    for (int i = 0; i < freq.length; i++) {
+        if (freq[i] > 0) {
+            System.out.println(i + " : " + freq[i]);
+            maxFreq = Math.max(maxFreq, freq[i]);
+        }
+    }
+
+    return maxFreq;
+}
 
 
 
@@ -380,13 +411,13 @@ public static void printPascalTriangle(int n) {
 
     public static void main(String[] args) {
       int[][] matrix = {
-            {1, 3, 5, 7},
-            {10, 11, 16, 20},
-            {23, 30, 34, 60}
+            {1, 2, 3},
+            {2, 3, 1},
+            {4, 1, 2}
         };
-        int target = 3;
-        System.out.println("target "+target);
-        System.out.println(searchMatrix2(matrix, target));
+
+        int result = Occurrence(matrix);
+        System.out.println("Maximum frequency among all elements: " + result);
        
  
         // int[][]mat = {
