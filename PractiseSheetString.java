@@ -326,6 +326,33 @@ public static List<List<String>> grounpAnagrams(String[] s){    // 33 group anag
 
 
 
+public static void reverseWholeString(String str){  
+    str = str.trim();                                            //reverse the whole string in line
+    int end = str.length();    //end of string
+     String newStr = "";     //new string
+ 
+ 
+    for(int i= str.length()-1;i>=0;i--){
+     if(str.charAt(i) == ' '|| i == 0){
+     int start =(i == 0)? i: i+1;   
+     for(int j= start ;j< end;j++){    //adding elements to new String
+         newStr += str.charAt(j);
+     }
+     if(i != 0){
+         newStr +=' ';    //adding extra space
+     }
+    end = i;
+    //skip the multiple spaces
+    while( i> 0 && str.charAt(i-1) == ' '){
+        i--;
+    }
+     }
+    }
+    System.out.println(newStr);
+ }
+
+
+
 
 
 
@@ -336,12 +363,12 @@ public static List<List<String>> grounpAnagrams(String[] s){    // 33 group anag
 
 
  public static void main(String args[]){
-   String s1 = "tea";
-   String s2 = "eat";
-   System.out.println("String s1: tea");
-   System.out.println("String s2: eat");
+   
 
-   System.out.println(checkAnagram(s1, s2));
+  String str = "my name is";
+    System.out.println("Original String: " + str);
+    System.out.print("Reversed String: ");
+    reverseWholeString(str);
     // String s1 = "abca";
     // String s2 = "cdab";
     // System.out.println("String 1 is : abca");
