@@ -355,6 +355,30 @@ public static void reverseWholeString(String str){
 
 
 
+ public static String toUpperCase(String str){          
+        StringBuilder sb = new StringBuilder("");
+        
+        char ch = Character.toUpperCase(str.charAt(0));
+        sb.append(ch);
+
+        for(int i=1;i<str.length();i++)
+            if(str.charAt(i) == ' ' && i<str.length()-1) {
+                sb.append(str.charAt(i));
+                i++;
+                sb.append(Character.toUpperCase(str.charAt(i)));
+            }
+            else{
+                sb.append(str.charAt(i));
+            }
+      
+        return sb.toString();
+    }
+    
+
+
+
+
+
 
 
 
@@ -365,66 +389,11 @@ public static void reverseWholeString(String str){
  public static void main(String args[]){
    
 
-  String str = "my name is";
+    String str = "hello world";
     System.out.println("Original String: " + str);
-    System.out.print("Reversed String: ");
-    reverseWholeString(str);
-    // String s1 = "abca";
-    // String s2 = "cdab";
-    // System.out.println("String 1 is : abca");
-    // System.out.println("String 2 is : cdab");
-    // if(IsrotationOrNot(s1, s2)){
-    //     System.out.println(s2 + " is a rotation of " + s1);
-    // }
-    // else{
-    //    System.out.println(s2 + " is not  a rotation of " + s1);  
-   // }
-    // String str1 = "car is running";
-    // String str2 = "running";
-    // System.out.println("String 1 is : car is running");
-    // System.out.println("String 2 is : running");
-    // System.out.println(isSubsequence(str2, str1));
-    // String[] s = {"eat","tea","tan","ate","nat","bat"};
-    // System.out.println(grounpAnagrams(s));
-    // String str4 = "-123";
-    // String str = "racecar";
-    // System.out.println("string is :"+str);
-    // System.out.println(checkPalindrome(str, 0, str.length()-1));
-   // System.out.println(stringToInt(str4));
-    // String[] str ={"flower","fly","flow"};
-    // String str1 = "aaabbbbccvdd";
-   
-    // String str2 = "MyHello";
-    //  System.out.println("string is :"+str2);
-    // String str3 ="Hello";
-    // System.out.println("substring is :"+str3);
-    // System.out.println(subStringSearch(str2, str3));
-  // System.out.println(compress(str1)    );
-//    System.out.print("Array is :"); 
-//   for(int i=0;i<str.length;i++){
-//     System.out.print(str[i]+" ");
-//   }
-//   System.out.println();
-//     System.out.println(longestCommonPrefix(str));
-    // System.out.println("String is: madam ");
-    // isPalindromeOrNot("madam");
-    // System.out.println("String is : mam");
-    // printPermutation("mam", "");
-   // String str1 = "abca";
-   // System.out.println(IsrotationOrNot("abcd", "bdca"));
-    // String str2 = "+123";
-    // System.out.println(isSubsequence("priya", "priyanshi"));
-    // System.out.println(stringToInt(str2));
-    // System.out.println(validPalindrome(str1));
-    //String str[] ={"interview","internet","internal"};
-   //System.out.println(subStringSearch(str1, str2));  
-   
-
-//isPalindromeOrNot(str1);
-  //System.out.println(compress(str2));
-   //System.out.println(checkAnagram(str1, str2));
-   
- 
+    String upperStr = toUpperCase(str);
+    System.out.println("After toUpperCase: " + upperStr);
+    
   
  }    
 }
