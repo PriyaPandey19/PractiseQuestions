@@ -401,6 +401,31 @@ public static int Occurrence(int[][] matrix) {
 
 
 
+
+public static boolean staircaseSearch( int matrix[][],int key){   //to find the  element in ascending order matrix
+             int row=0,col=matrix[0].length-1;
+
+             while(row < matrix.length && col >= 0){
+                if(matrix[row][col] == key){
+                    System.out.println("found at index (" + row + "," + col + ")");
+                    return true;
+                }
+                else if(key < matrix[row][col]){
+                    col--;
+                }
+                else{
+                    row++;
+                }
+             }
+             System.out.println("key not found");
+             return false;
+      }
+
+    
+
+
+
+
    
 
 
@@ -410,39 +435,18 @@ public static int Occurrence(int[][] matrix) {
         
 
     public static void main(String[] args) {
-      int[][] matrix = {
-            {1, 2, 3},
-            {2, 3, 1},
-            {4, 1, 2}
-        };
-
-        int result = Occurrence(matrix);
-        System.out.println("Maximum frequency among all elements: " + result);
-       
- 
-        // int[][]mat = {
-        //     {1, 2, 3},
-        //     {4, 5, 6},
-        //     {7, 8, 9}
-        // };
-        // System.out.println("original matrix");
-        // for (int i = 0; i < mat.length; i++) {
-        //     System.out.println(Arrays.toString(mat[i]));
-        // }
-    
-        // int [][] mat2 ={
-        //     {1, 2, 3},
-        //     {4, 5, 6},
-        //     {7, 8, 9}
-        // };
-
-        // boundaryTraversal(mat2);
-       
-        // rotate90Clockwise(mat);
-        // System.out.println("Matrix after 90 degree rotation:");
-        // for (int i = 0; i < mat.length; i++) {
-        //     System.out.println(Arrays.toString(mat[i]));
-        // }
+       int[][] matrix = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+    int key = 7;
+    boolean found = staircaseSearch(matrix, key);
+    if (found) {
+        System.out.println("Key " + key + " found in the matrix.");
+    } else {
+        System.out.println("Key " + key + " not found in the matrix.");
+    }
     
 
 
