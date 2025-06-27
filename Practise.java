@@ -70,19 +70,61 @@
             System.out.println();
         }
     }
-    public static void main(String[] args) {
-      int n = 4; // You can change n for different board sizes
-    char[][] board = new char[n][n];
-    // Initialize board with '.'
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            board[i][j] = '.';
+
+
+
+     public static void changeArr(int arr[],int i,int val){    //travse the array and backtracking
+        if(i == arr.length){
+        printArr(arr);
+         return;
+        }
+        arr[i] = val;
+        changeArr(arr, i+1, val+1);
+        arr[i] = arr[i] - 2;
+    }
+    public static void printArr(int arr[]) {
+    for (int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+    }
+    System.out.println();
+}
+
+
+
+
+public static void countingSort(int arr[]){    //counting sort
+    int largest = Integer.MIN_VALUE;
+    for(int i=0;i<arr.length;i++){
+        largest = Math.max(largest,arr[i]);
+    }
+
+    int count[] = new int[largest+1];
+    for(int i=0;i<arr.length;i++){
+        count[arr[i]]++;
+    }
+
+    //sorting
+    int j=0;
+    for(int i=0;i<count.length;i++){
+        while(count[i] >0){
+            arr[j] = i;
+            j++;
+            count[i]--;
         }
     }
-    count = 0; // Reset count before solving
-    nQueens(board, 0);
-    System.out.println("Total solutions: " + count);
+  }
 
+
+
+    public static void main(String[] args) {
+     int[] arr = {4, 2, 2, 8, 3, 3, 1};
+    System.out.println("Original array:");
+    printArr(arr);
+
+    countingSort(arr);
+
+    System.out.println("Sorted array:");
+    printArr(arr);
      
 }
  }
