@@ -115,6 +115,9 @@ public static void countingSort(int arr[]){    //counting sort
   }
 
 
+
+  
+
   public static void modifiedbubbleSort(int arr[]){      // Optimized  bubble sort
     for(int turn =0;turn<arr.length-1;turn++){
        boolean swapped = false;
@@ -137,15 +140,14 @@ public static void countingSort(int arr[]){    //counting sort
 
 
     public static void main(String[] args) {
-     int[] arr = {4, 2, 2, 8, 3, 3, 1};
+      int[] arr = {4, 2, 2, 8, 3, 3, 1};
     System.out.println("Original array:");
     printArr(arr);
 
-    countingSort(arr);
+    modifiedbubbleSort(arr);
 
     System.out.println("Sorted array:");
     printArr(arr);
-     
 }
  }
     
