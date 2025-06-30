@@ -173,11 +173,11 @@ public static void countingSort(int arr[]){    //counting sort
 
 
     public static void main(String[] args) {
-      int[] arr = {4, 2, 2, 8, 3, 3, 1};
+       int[] arr = {4, 2, 2, 8, 3, 3, 1};
     System.out.println("Original array:");
     printArr(arr);
 
-    modifiedbubbleSort(arr);
+    quickSort(arr, 0, arr.length - 1);
 
     System.out.println("Sorted array:");
     printArr(arr);
