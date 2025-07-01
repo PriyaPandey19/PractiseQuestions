@@ -167,8 +167,8 @@ public static void countingSort(int arr[]){    //counting sort
     int temp = pivot;
     arr[ei] = arr[i];
     arr[i] = temp;
-    return i;
-    }
+    return i;                          //return index
+    } 
 
 
 
